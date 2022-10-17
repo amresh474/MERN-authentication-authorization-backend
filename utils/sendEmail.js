@@ -8,8 +8,8 @@ module.exports = async (email, subject, text) => {
 			port: Number(process.env.EMAIL_PORT),
 			secure: Boolean(process.env.SECURE),
 			auth: {
-				user: 'amreshkumar474@gmail.com',
-				pass: 'pfesmypzuwtgjnym',
+				user: process.env.USER,
+				pass: process.env.PASS,
 			},
 		});
 
