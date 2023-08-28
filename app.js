@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
 const auth_routes = require("./routes/auth.route");
 const user_routes = require("./routes/user.route");
+const barcode_routes = require("./routes/barCode.route");
 const cors = require("cors");
 require("dotenv").config();
 const app = express();
@@ -14,7 +15,9 @@ app.use(express.json());
 
 app.use("/v1/auth", auth_routes);
 app.use("/api/v1", user_routes);
+app.use("/api/v1", barcode_routes);
 
+console.log("process.env.MONGODB_URL",process.env.DB_CONN_STRING)
 mongoose
   .connect(`${process.env.DB_CONN_STRING}`, {
     useUnifiedTopology: true,
